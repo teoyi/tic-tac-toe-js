@@ -1,0 +1,20 @@
+/* Footer Styling */
+footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    font-size: 15px;
+    padding-bottom: 4px;
+    padding-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#gh-logo{
+    width: 15px;
+    height: 15px;
+}
+
+#gh-link{
+    text-decoration: none;
+    color: black;
+}
