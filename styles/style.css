@@ -8,8 +8,20 @@ body{
     background-color: #FFFDD0;
 }
 
+.main-container{ 
+    display:flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.p-signs{ 
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .container{
-    min-height: 100vh;
+    min-height: 50vh;
     display:flex; 
     justify-content: center;
     align-items: center;
