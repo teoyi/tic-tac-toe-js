@@ -73,8 +73,7 @@ body{
     border-radius: 5px;
     position: relative;
     border : 0;
-    /* background-color:#FFFDD0; */
-    background-color: #70483C;
+    background-color:#FFFDD0;
     cursor: pointer;
     transition: all 0.2s;
 }
