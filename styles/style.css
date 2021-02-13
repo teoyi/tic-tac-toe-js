@@ -73,7 +73,8 @@ body{
     border-radius: 5px;
     position: relative;
     border : 0;
-    background-color:#FFFDD0;
+    /* background-color:#FFFDD0; */
+    background-color: #70483C;
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -88,7 +89,7 @@ body{
 .btn:nth-child(3)::before {
   position: absolute;
   top: 0;
-  left: -6px;
+  left: -5px;
   content: '';
   border-left: 5px solid grey;
   height: 100%;
@@ -99,7 +100,7 @@ body{
 .btn:nth-child(3n+6)::before {
   position: absolute;
   top: -12px;
-  left: -6px;
+  left: -5px;
   content: '';
   border-left: 5px solid grey;
   height: calc(100% + 12px);
@@ -108,7 +109,7 @@ body{
 /* Horizontal lines above cells in first columns */
 .btn:nth-child(3n+4)::after {
     position: absolute;
-    top: -6px;
+    top: -5px;
     left: 0;
     content: '';
     border-bottom: 5px solid grey;
@@ -119,7 +120,7 @@ body{
 .btn:nth-child(3n+5)::after,
 .btn:nth-child(3n+6)::after {
     position: absolute;
-    top: -6px;
+    top: -5px;
     left: -12px;
     content: '';
     border-bottom: 5px solid grey;
