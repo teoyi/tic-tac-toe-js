@@ -1,6 +1,19 @@
 const gameBoard = (() => {
     let _board = new Array(9); 
-})
+    const keyVal = () => {
+        keys = document.getElementsByClassName('btn');
+        // _board.forEach(element => {
+        //     element = 
+        // });
+    }
+    
+
+})();
+
+keys = document.getElementsByClassName('btn');
+console.log(typeof(keys[0]));
+console.log(keys);
+console.log(keys[0].innerHTML);
 
 // Player factory need some work 
 const Player = (role) => {
