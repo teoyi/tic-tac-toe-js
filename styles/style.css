@@ -49,6 +49,11 @@ body{
     background-color:#70483C;
 }
 
+.role.active{ 
+    color:#FAFAF8;
+    background-color:#70483C;
+}
+
 
 
 /* Game area styling */
