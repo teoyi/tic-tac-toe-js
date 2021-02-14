@@ -65,29 +65,25 @@ body{
 }
 
 .grid-buttons{
-    display: grid;
+    display: inline-grid;
     height: 80vh;
     width: 80vh;
     grid-template-columns: auto auto auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    padding: 0px;
+    justify-items: center;
 }
 
 .btn{
-    display: flex;
-    align-items: center;
+    display: inline;
     border-radius: 5px;
     position: relative;
     border: 0;
     background-color: #FFFDD0;
     cursor: pointer;
     transition: all 0.2s;
-    font-size: 300px;
-    height: 192.6px;
-    width: 187.967px;
-    justify-content: center;
-    padding-bottom: 70px;
+    height: 192px;
+    width: 192px;
 }
 
 .btn:hover{

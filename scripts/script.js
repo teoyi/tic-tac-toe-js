@@ -41,7 +41,7 @@ gameBoard.setKey(2, 'o')
 gameBoard.setKey(4, 'x')
 gameBoard.setKey(5, 'x')
 gameBoard.setKey(7, 'x')
-gameBoard.setKey(8, '0')
+gameBoard.setKey(8, 'o')
 
 
 // keys = document.getElementsByClassName('btn');
