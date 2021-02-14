@@ -33,17 +33,21 @@ const gameBoard = (() => {
 
 })();
 
-// keys = document.getElementsByClassName('btn');
-// arr = new Array(9)
-// console.log(arr)
-// for (let i=0; i <9; i++) {
-//     arr[i] = keys[i].innerHTML 
-// }
-// console.log(arr)
+keys = document.getElementsByClassName('btn');
+arr = new Array(9)
+console.log(arr)
+for (let i=0; i <9; i++) {
+    arr[i] = keys[i].innerHTML 
+}
+console.log(arr)
 
-// keys[0].innerHTML = 'o';
-// arr[0] = keys[0].innerHTML;
-// console.log(arr)
+keys[0].innerHTML = 'o';
+arr[0] = keys[0].innerHTML;
+console.log(arr)
+
+keys[1].innerHTML = 'x';
+arr[1] = keys[1].innerHTML;
+console.log(arr)
 
 
 // Player factory need some work 
