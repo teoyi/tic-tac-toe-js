@@ -33,47 +33,48 @@ const gameBoard = (() => {
 
 })();
 
-keys = document.getElementsByClassName('btn');
-arr = new Array(9)
-console.log(arr)
-for (let i=0; i <9; i++) {
-    arr[i] = keys[i].innerHTML 
-}
-console.log(arr)
+// keys = document.getElementsByClassName('btn');
+// arr = new Array(9)
+// console.log(arr)
+// for (let i=0; i <9; i++) {
+//     arr[i] = keys[i].innerHTML 
+// }
+// console.log(arr)
 
-keys[0].innerHTML = 'o';
-arr[0] = keys[0].innerHTML;
-console.log(arr)
-// console.log(typeof(keys[0]));
-// console.log(keys);
-// console.log(keys[0].innerHTML);
+// keys[0].innerHTML = 'o';
+// arr[0] = keys[0].innerHTML;
+// console.log(arr)
 
-// // Player factory need some work 
-// const Player = (role) => {
-//     let _role = role; 
-//     const getRole = () => _role; 
-//     const setRole = () => (role, active) => {
-//         _role = role; 
-//         roleX = document.getElementById('x');
-//         roleO = document.getElementById('o');
-//         roleX.addEventListener("click", function() {
-//             if (this.classList.contains("active")) {
-//                 this.classList.remove("active");
-//                 console.log('removed!')
-//             } else {
-//                 this.classList.add("active");
-//                 roleO.classList.remove("active");
-//                 console.log('added!')
-//             };
-//         });
-//         // roleO.addEventListener("click", function() {
-//         //     if (this.classList.contains("active")) {
-//         //         this.classList.remove("active");
-//         //     } else {
-//         //         this.classList.add("active");
-//         //         roleX.classList.remove("active");
-//         //     };
-//         // });
-//     };
-//     return {getRole, setRole};
-// };
+
+// Player factory need some work 
+const Player = (role) => {
+    let _role = role; 
+    const getRole = () => _role; 
+    const setRole = () => (role, active) => {
+        _role = role; 
+        roleX = document.getElementById('x');
+        roleO = document.getElementById('o');
+        roleX.addEventListener("click", function() {
+            if (this.classList.contains("active")) {
+                this.classList.remove("active");
+                console.log('removed!')
+            } else {
+                this.classList.add("active");
+                roleO.classList.remove("active");
+                console.log('added!')
+            };
+        });
+        // roleO.addEventListener("click", function() {
+        //     if (this.classList.contains("active")) {
+        //         this.classList.remove("active");
+        //     } else {
+        //         this.classList.add("active");
+        //         roleX.classList.remove("active");
+        //     };
+        // });
+    };
+    return {
+        getRole,
+        setRole
+    };
+};
