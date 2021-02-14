@@ -9,12 +9,15 @@ const gameBoard = (() => {
     };
 
     // Getting the values of the squares of interest 
-    const getKey = (index) => _board[index];
-
+    const getKey = (index) => {
+        _board[index];
+        console.log(_board[index]);
+    };
     // Setting values for the squares of interest 
     const setKey = (index, player) => { 
         // Update array for square of interest 
-        _board[index] = player.getRole(); // .getRole() will be added to determine player's decision on 'x' or 'o'
+        _board[index] = player //For now, player will be manually palced for a role
+        //_board[index] = player.getRole(); // .getRole() will be added to determine player's decision on 'x' or 'o'
         _keys[index].innerHTML = _board[index] //Replacing button's html with the correct 'x' or 'o'
     }
 
@@ -33,21 +36,29 @@ const gameBoard = (() => {
 
 })();
 
-keys = document.getElementsByClassName('btn');
-arr = new Array(9)
-console.log(arr)
-for (let i=0; i <9; i++) {
-    arr[i] = keys[i].innerHTML 
-}
-console.log(arr)
+gameBoard.setKey(0, 'x')
+gameBoard.setKey(2, 'o')
+gameBoard.setKey(4, 'x')
+gameBoard.setKey(5, 'x')
+gameBoard.setKey(7, 'x')
+gameBoard.setKey(8, '0')
 
-keys[0].innerHTML = 'o';
-arr[0] = keys[0].innerHTML;
-console.log(arr)
 
-keys[1].innerHTML = 'x';
-arr[1] = keys[1].innerHTML;
-console.log(arr)
+// keys = document.getElementsByClassName('btn');
+// arr = new Array(9)
+// console.log(arr)
+// for (let i=0; i <9; i++) {
+//     arr[i] = keys[i].innerHTML 
+// }
+// console.log(arr)
+
+// keys[0].innerHTML = 'o';
+// arr[0] = keys[0].innerHTML;
+// console.log(arr)
+
+// keys[1].innerHTML = 'x';
+// arr[1] = keys[1].innerHTML;
+// console.log(arr)
 
 
 // Player factory need some work 
