@@ -13,24 +13,18 @@ body{
     flex-direction: column;
     justify-content: center; 
     align-items: center;
+    min-height:0;
 }
 
 /* player role styling */
-.role-container{ 
-    display: flex; 
-    flex-direction: row;
-    width: 20vh;
-    justify-content: center;
-    align-items: center;
-}
 
 .p-signs{ 
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-
 .p-signs button{ 
+    display:inline-block;
     border-radius: 5px;
     border : 0;
     background-color:#FFFDD0;
@@ -59,6 +53,9 @@ body{
 
 /* Game area styling */
 .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid-buttons{
