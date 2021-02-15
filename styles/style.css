@@ -60,8 +60,7 @@ body{
 
 .grid-buttons{
     display: inline-grid;
-    height: 80vh;
-    width: 80vh;
+    position: relative;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 5px;
@@ -72,6 +71,9 @@ body{
     border-radius: 5px;
     min-width: 300px;
     min-height: 300px;
+    height: 80vh;
+    width: 80vh;
+
 }
 
 .btn{
@@ -86,7 +88,6 @@ body{
     cursor: pointer;
     transition: all 0.2s;
     width: 100%;
-    height: calc(80vh/3 - 3px);
     min-height: 100px;
     font-size: 100px;
 }
