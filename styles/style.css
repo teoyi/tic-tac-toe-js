@@ -18,8 +18,10 @@ body{
 /* player role styling */
 .role-container{ 
     display: flex; 
+    flex-direction: row;
     width: 20vh;
     justify-content: center;
+    align-items: center;
 }
 
 .p-signs{ 
@@ -30,7 +32,6 @@ body{
 
 .p-signs button{ 
     border-radius: 5px;
-    position: relative;
     border : 0;
     background-color:#FFFDD0;
     cursor: pointer;
@@ -58,32 +59,39 @@ body{
 
 /* Game area styling */
 .container{
-    min-height: 50vh;
-    display:flex; 
-    justify-content: center;
-    align-items: center;
 }
 
 .grid-buttons{
     display: inline-grid;
     height: 80vh;
     width: 80vh;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
     justify-items: center;
+    border: 10px solid grey;
+    background-color: grey;
+    border-radius: 5px;
+    min-width: 300px;
+    min-height: 300px;
 }
 
 .btn{
-    display: inline;
-    border-radius: 5px;
-    position: relative;
-    border: 0;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;
+    border: 1px solid grey;
     background-color: #FFFDD0;
     cursor: pointer;
     transition: all 0.2s;
-    height: 192px;
-    width: 192px;
+    width: 100%;
+    height: calc(80vh/3 - 3px);
+    min-height: 300px;
+    font-size: 100px;
 }
 
 .btn:hover{
@@ -91,48 +99,6 @@ body{
     background-color:#70483C;
 }
 
-/* Vertical lines to the left of cells in top row */
-.btn:nth-child(2)::before,
-.btn:nth-child(3)::before {
-  position: absolute;
-  top: 0;
-  left: -5px;
-  content: '';
-  border-left: 5px solid grey;
-  height: 100%;
-}
-
-/* Vertical lines to the left of cells in all other rows */
-.btn:nth-child(3n+5)::before,
-.btn:nth-child(3n+6)::before {
-  position: absolute;
-  top: -12px;
-  left: -5px;
-  content: '';
-  border-left: 5px solid grey;
-  height: calc(100% + 12px);
-}
-
-/* Horizontal lines above cells in first columns */
-.btn:nth-child(3n+4)::after {
-    position: absolute;
-    top: -5px;
-    left: 0;
-    content: '';
-    border-bottom: 5px solid grey;
-    width: 100%;
-}
-  
-/* Horizontal lines above cells in all other columns */
-.btn:nth-child(3n+5)::after,
-.btn:nth-child(3n+6)::after {
-    position: absolute;
-    top: -5px;
-    left: -12px;
-    content: '';
-    border-bottom: 5px solid grey;
-    width: calc(100% + 12px);
-}
 
 /* Footer Styling */
 footer{
