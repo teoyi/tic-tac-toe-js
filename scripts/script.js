@@ -75,6 +75,7 @@ const gameBoard = (() => {
 // Player factory need some work 
 const Player = (role) => {
     let _role = role; 
+    let docRole = document.getElementById(_role);
 
     const initRole = (role) => {
         _role = role;
@@ -88,9 +89,9 @@ const Player = (role) => {
     }
     const getRole = () => _role; 
     const setRole = () => {
-        if (document.getElementById(_role).classList.contains('active')){
-
-        } else (document.getElementById(_role).classList.add('active'));
+        if (!docRole.classList.contains('active')){
+            docRole.classList.add('active');
+        };
     };
 
     return {
@@ -102,7 +103,6 @@ const Player = (role) => {
 
 Luke = Player('x');
 Luke.setRole();
-Luke.getRole();
 
 gameBoard.setKey(0, 'x')
 gameBoard.setKey(2, 'o')
