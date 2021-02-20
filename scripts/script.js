@@ -15,10 +15,14 @@ const gameBoard = (() => {
     };
     // Setting values for the squares of interest 
     const setKey = (index, player) => { 
-        // Update array for square of interest 
+        if (_board[index]) {
+            alert('This position is already taken. Try again!')
+        } else {
+            // Update array for square of interest 
         _board[index] = player //For now, player will be manually palced for a role
         //_board[index] = player.getRole(); // .getRole() will be added to determine player's decision on 'x' or 'o'
         _keys[index].innerHTML = _board[index] //Replacing button's html with the correct 'x' or 'o'
+        } 
     }
 
     const clear = () => {
@@ -42,6 +46,7 @@ gameBoard.setKey(4, 'x')
 gameBoard.setKey(5, 'x')
 gameBoard.setKey(7, 'x')
 gameBoard.setKey(8, 'o')
+gameBoard.setKey(8, 'x')
 
 
 // keys = document.getElementsByClassName('btn');
