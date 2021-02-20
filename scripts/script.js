@@ -77,16 +77,6 @@ const Player = (role) => {
     let _role = role; 
     let docRole = document.getElementById(_role);
 
-    const initRole = (role) => {
-        _role = role;
-        if (_role == 'x') {
-            roleO.classList.remove("active");
-            roleX.classList.add("active");
-        } else {
-            roleX.classList.remove("active");
-            roleO.classList.add("active");
-        }
-    }
     const getRole = () => _role; 
     const setRole = () => {
         if (!docRole.classList.contains('active')){
@@ -96,8 +86,7 @@ const Player = (role) => {
 
     return {
         getRole,
-        setRole,
-        initRole
+        setRole
     };
 };
 
