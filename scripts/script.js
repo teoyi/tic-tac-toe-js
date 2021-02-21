@@ -16,10 +16,11 @@ const gameBoard = (() => {
     };
 
     // Get the index of the square of interest 
+    // Might not be needed 
     const getIndex = () => {
         for (let i=0; i<_board.length; i++){
             _keys[i].addEventListener("click", function(e){
-                alert(this.id);
+                return this.id;
             });
         };
     };
@@ -35,6 +36,7 @@ const gameBoard = (() => {
             _keys[index].innerHTML = _board[index]; //Replacing button's html with the correct 'x' or 'o'
         };
     };
+
 
     const clear = () => {
         for (let i=0; i<_board.length; i++){
@@ -64,10 +66,16 @@ const Player = (role) => {
             docRole.classList.add('active');
         };
     };
+    const rmvRole = () => {
+        if (docRole.classList.contains('active')){
+            docRole.classList.remove('active');
+        };
+    };
 
     return {
         getRole,
-        setRole
+        setRole,
+        rmvRole
     };
 };
 
@@ -77,25 +85,60 @@ const gameController = (() => {
     const _player2 = Player('o');
     const _roleX = document.getElementById('x'); 
     const _roleO = document.getElementById('o');
+    const _keys = document.getElementsByClassName('btn');
 
-    const _turn = () => { 
-        let turnX = true; 
-        _player1.setRole(); 
+    const _init = (() => {
+        _player1.setRole();
+        for (let i=0; i<9; i++){
+            _keys[i].addEventListener("click", function(){
+                if (_roleX.classList.contains('active')){
+                    gameBoard.setKey(i, _player1);
+                    _player1.rmvRole();
+                    _player2.setRole();
+                } else if(_roleO.classList.contains('active')){
+                    gameBoard.setKey(i, _player2);
+                    _player1.setRole();
+                    _player2.rmvRole();
+                };
+            });
+        };
+    })();
 
-    }
     return {
-        _turn
+
     }
-})
+})();
 
-Luke = Player('x');
-Ai = Player('o');
-Luke.setRole();
+// Display logic 
+// const displayController = (() => {
+//     const _roleX = document.getElementById('x'); 
+//     const _roleO = document.getElementById('o'); 
+//     const _keys = document.getEleme#ntsByClassName('btn');
 
-gameBoard.setKey(0, Luke)
-gameBoard.setKey(2, Ai)
-gameBoard.setKey(4, Luke)
-gameBoard.setKey(5, Ai)
-gameBoard.setKey(7, Ai)
-gameBoard.setKey(8, Luke)
-gameBoard.getIndex()
+//     const _init = (() => {
+//         for (let i=0; i<9; i++){
+//             _keys[i].addEventListener("click", function(){
+//                 if (_roleX.classList.contains('active')){
+//                     gameBoard.setKey(i, _player1);
+//                 } else if(_roleO.classList.contains('active')){
+//                     gameBoard.setKey(i, _player2);
+//                 };
+//             });
+//         };
+//     })();
+//     return {
+//     };
+// });
+
+// Luke = Player('x');
+// Ai = Player('o');
+// Luke.setRole();
+// Luke.rmvRole();
+
+// gameBoard.setKey(0, Luke)
+// gameBoard.setKey(2, Ai)
+// gameBoard.setKey(4, Luke)
+// gameBoard.setKey(5, Ai)
+// gameBoard.setKey(7, Ai)
+// gameBoard.setKey(8, Luke)
+//displayController()
