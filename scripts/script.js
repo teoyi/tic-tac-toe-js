@@ -2,10 +2,9 @@ const gameBoard = (() => {
     // Creating a board with an array of 9 spaces 
     let _board = new Array(9); 
     const _keys = document.getElementsByClassName('btn');
-  
-
+    
     // Connecting elements of the array to the grid button value
-    for (let i=0; i<9; i++) {
+    for (let i=0; i<_board.length; i++) {
         _board[i] = _keys[i].innerHTML 
     };
 
@@ -14,26 +13,18 @@ const gameBoard = (() => {
         _board[index];
         console.log(_board[index]);
     };
+
     // Setting values for the squares of interest 
     const setKey = (index, player) => { 
         if (_board[index]) {
             alert('This position is already taken. Try again!');
         } else {
             // Update array for square of interest 
-        _board[index] = player //For now, player will be manually palced for a role
-        //_board[index] = player.getRole(); // .getRole() will be added to determine player's decision on 'x' or 'o'
-        _keys[index].innerHTML = _board[index] //Replacing button's html with the correct 'x' or 'o'
-        } 
-    }
-
-    const bind = () => {
-        let player = 'x';
-        for (let i=0; i<9; i++) {
-            _keys[i].addEventListener('click', function(){
-                
-            })
-        }
-    }
+            // _board[index] = player //For now, player will be manually palced for a role
+            _board[index] = player.getRole(); // .getRole() will be added to determine player's decision on 'x' or 'o'
+            _keys[index].innerHTML = _board[index]; //Replacing button's html with the correct 'x' or 'o'
+        };
+    };
 
     const clear = () => {
         for (let i=0; i<_board.length; i++){
@@ -51,28 +42,7 @@ const gameBoard = (() => {
 })();
 
 
-// gameBoard.setKey(8, 'x')
-
-
-// keys = document.getElementsByClassName('btn');
-// arr = new Array(9)
-// console.log(arr)
-// for (let i=0; i <9; i++) {
-//     arr[i] = keys[i].innerHTML 
-// }
-// console.log(arr)
-
-// keys[0].innerHTML = 'o';
-// arr[0] = keys[0].innerHTML;
-// console.log(arr)
-
-// keys[1].innerHTML = 'x';
-// arr[1] = keys[1].innerHTML;
-// console.log(arr)
-
-// let roleX = document.getElementById('x');
-// roleX.classList.add("active");
-// Player factory need some work 
+// Player creation factory 
 const Player = (role) => {
     let _role = role; 
     let docRole = document.getElementById(_role);
@@ -90,12 +60,15 @@ const Player = (role) => {
     };
 };
 
+
+
 Luke = Player('x');
+Ai = Player('o');
 Luke.setRole();
 
-gameBoard.setKey(0, 'x')
-gameBoard.setKey(2, 'o')
-gameBoard.setKey(4, 'x')
-gameBoard.setKey(5, 'x')
-gameBoard.setKey(7, 'x')
-gameBoard.setKey(8, 'o')
+gameBoard.setKey(0, Luke)
+gameBoard.setKey(2, Ai)
+gameBoard.setKey(4, Luke)
+gameBoard.setKey(5, Ai)
+gameBoard.setKey(7, Ai)
+gameBoard.setKey(8, Luke)
