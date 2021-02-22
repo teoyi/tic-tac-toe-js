@@ -37,6 +37,8 @@ const gameBoard = (() => {
         };
     };
 
+    // Get the board array 
+    const getBoard = () => _board;
 
     const clear = () => {
         for (let i=0; i<_board.length; i++){
@@ -49,6 +51,7 @@ const gameBoard = (() => {
         getKey,
         setKey,
         getIndex,
+        getBoard,
         clear
     };
 
@@ -93,13 +96,13 @@ const gameController = (() => {
                         [0,4,8],[2,4,6]
                     ]
     
-    const checkWin = (board) => {
-        for (let i=0; i<9; i++){
-            for (let j=0; i<3; i++){
-                if (winCondition)
-            }
-        }
-    }
+    // const checkWin = (board) => {
+    //     for (let i=0; i<9; i++){
+    //         for (let j=0; i<3; i++){
+    //             if (winCondition)
+    //         }
+    //     }
+    // }
 
     const _init = (() => {
         _player1.setRole();
