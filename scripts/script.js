@@ -96,14 +96,27 @@ const gameController = (() => {
                         [0,4,8],[2,4,6]
                     ]
     
-    // const checkWin = (board) => {
-    //     for (let i=0; i<9; i++){
-    //         for (let j=0; i<3; i++){
-    //             if (winCondition)
-    //         }
-    //     }
-    // }
+    const checkRow = (board) => { 
+        let row1 = [board.getKey(0),board.getKey(1),board.getKey(2)]
+        let row2 = [board.getKey(3),board.getKey(4),board.getKey(5)]
+        let row3 = [board.getKey(6),board.getKey(7),board.getKey(8)]
+        if (row1.every(elem => elem == 'x') || row1.every(elem => elem == 'o')) {
+            return true;
+        } else if (row2.every(elem => elem == 'x') || row2.every(elem => elem == 'o')){
+            return true;
+        } else if (row3.every(elem => elem == 'x') || row3.every(elem => elem == 'o')){
+            return true;
+        } else {
+            return false;
+        };
+    };
 
+    const checkWin = (board) => {
+        if (checkRow(board)) {
+            alert('yes');
+        };
+    };
+    
     const _init = (() => {
         _player1.setRole();
         for (let i=0; i<9; i++){
@@ -112,17 +125,20 @@ const gameController = (() => {
                     gameBoard.setKey(i, _player1);
                     _player1.rmvRole();
                     _player2.setRole();
+                    checkWin(gameBoard);
                 } else if(_roleO.classList.contains('active')){
                     gameBoard.setKey(i, _player2);
                     _player1.setRole();
                     _player2.rmvRole();
+                    checkWin(gameBoard);
                 };
             });
         };
     })();
 
     return {
-
+        checkRow,
+        checkWin,
     }
 })();
 
