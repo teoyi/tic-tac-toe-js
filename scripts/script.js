@@ -111,12 +111,27 @@ const gameController = (() => {
         };
     };
 
+    const checkCol = (board) => { 
+        let col1 = [board.getKey(0),board.getKey(3),board.getKey(6)]
+        let col2 = [board.getKey(1),board.getKey(4),board.getKey(7)]
+        let col3 = [board.getKey(2),board.getKey(5),board.getKey(8)]
+        if (col1.every(elem => elem == 'x') || col1.every(elem => elem == 'o')) {
+            return true;
+        } else if (col2.every(elem => elem == 'x') || col2.every(elem => elem == 'o')){
+            return true;
+        } else if (col3.every(elem => elem == 'x') || col3.every(elem => elem == 'o')){
+            return true;
+        } else {
+            return false;
+        };
+    };
+
     const checkWin = (board) => {
         if (checkRow(board)) {
             alert('yes');
         };
     };
-    
+
     const _init = (() => {
         _player1.setRole();
         for (let i=0; i<9; i++){
@@ -138,6 +153,7 @@ const gameController = (() => {
 
     return {
         checkRow,
+        checkCol,
         checkWin,
     }
 })();
