@@ -70,7 +70,7 @@ const Player = (role) => {
             docRole.classList.add('active');
         };
     };
-    
+
     const rmvRole = () => {
         if (docRole.classList.contains('active')){
             docRole.classList.remove('active');
@@ -142,8 +142,8 @@ const gameController = (() => {
 
     const checkWin = (board) => {
         if (checkRow(board) || checkCol(board) || checkDia(board)) {
-            alert('yes');
-        };
+            return true;
+        } else {return false};
     };
 
     const _init = (() => {
@@ -154,12 +154,10 @@ const gameController = (() => {
                     gameBoard.setKey(i, _player1);
                     _player1.rmvRole();
                     _player2.setRole();
-                    checkWin(gameBoard);
                 } else if(_roleO.classList.contains('active')){
                     gameBoard.setKey(i, _player2);
                     _player1.setRole();
                     _player2.rmvRole();
-                    checkWin(gameBoard);
                 };
             });
         };
@@ -173,23 +171,16 @@ const gameController = (() => {
     }
 })();
 
-// Display logic 
+// // Display logic 
 // const displayController = (() => {
+//     const _player1 = Player('x');
+//     const _player2 = Player('o');
 //     const _roleX = document.getElementById('x'); 
 //     const _roleO = document.getElementById('o'); 
-//     const _keys = document.getEleme#ntsByClassName('btn');
+//     const _keys = document.getElementsByClassName('btn');
 
-//     const _init = (() => {
-//         for (let i=0; i<9; i++){
-//             _keys[i].addEventListener("click", function(){
-//                 if (_roleX.classList.contains('active')){
-//                     gameBoard.setKey(i, _player1);
-//                 } else if(_roleO.classList.contains('active')){
-//                     gameBoard.setKey(i, _player2);
-//                 };
-//             });
-//         };
-//     })();
+
+
 //     return {
 //     };
 // });
