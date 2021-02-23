@@ -30,7 +30,7 @@ const gameBoard = (() => {
             alert('This position is already taken. Try again!');
         } else {
             // Update array for square of interest 
-            // _board[index] = player //For now, player will be manually palced for a role
+            // _board[index] = player //For now, player will be manually placed for a role
             _board[index] = player.getRole(); // .getRole() will be added to determine player's decision on 'x' or 'o'
             _keys[index].innerHTML = _board[index]; //Replacing button's html with the correct 'x' or 'o'
         };
@@ -102,13 +102,10 @@ const gameController = (() => {
         const row2 = [board.getKey(3),board.getKey(4),board.getKey(5)]
         const row3 = [board.getKey(6),board.getKey(7),board.getKey(8)]
         if (row1.every(elem => elem == 'x') || row1.every(elem => elem == 'o')) {
-            console.log(row1)
             return true;
         } else if (row2.every(elem => elem == 'x') || row2.every(elem => elem == 'o')){
-            console.log(row2)
             return true;
         } else if (row3.every(elem => elem == 'x') || row3.every(elem => elem == 'o')){
-            console.log(row3)
             return true;
         } else {
             return false;
@@ -131,8 +128,8 @@ const gameController = (() => {
     };
 
     const _checkDia = (board) => { 
-        const dia1 = [board.getKey(2),board.getKey(4),board.getKey(6)]
-        const dia2 = [board.getKey(3),board.getKey(4),board.getKey(8)]
+        const dia1 = [board.getKey(0),board.getKey(4),board.getKey(8)]
+        const dia2 = [board.getKey(2),board.getKey(4),board.getKey(6)]
         if (dia1.every(elem => elem == 'x') || dia1.every(elem => elem == 'o')) {
             return true;
         } else if (dia2.every(elem => elem == 'x') || dia2.every(elem => elem == 'o')){
