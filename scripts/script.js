@@ -11,8 +11,7 @@ const gameBoard = (() => {
 
     // Getting the values of the squares of interest 
     const getKey = (index) => {
-        _board[index];
-        console.log(_board[index]);
+        return _board[index];
     };
 
     // Get the index of the square of interest 
@@ -98,25 +97,28 @@ const gameController = (() => {
                         [0,4,8],[2,4,6]
                     ]
     
-    const checkRow = (board) => { 
-        let row1 = [board.getKey(0),board.getKey(1),board.getKey(2)]
-        let row2 = [board.getKey(3),board.getKey(4),board.getKey(5)]
-        let row3 = [board.getKey(6),board.getKey(7),board.getKey(8)]
+    const _checkRow = (board) => { 
+        const row1 = [board.getKey(0),board.getKey(1),board.getKey(2)]
+        const row2 = [board.getKey(3),board.getKey(4),board.getKey(5)]
+        const row3 = [board.getKey(6),board.getKey(7),board.getKey(8)]
         if (row1.every(elem => elem == 'x') || row1.every(elem => elem == 'o')) {
+            console.log(row1)
             return true;
         } else if (row2.every(elem => elem == 'x') || row2.every(elem => elem == 'o')){
+            console.log(row2)
             return true;
         } else if (row3.every(elem => elem == 'x') || row3.every(elem => elem == 'o')){
+            console.log(row3)
             return true;
         } else {
             return false;
         };
     };
 
-    const checkCol = (board) => { 
-        let col1 = [board.getKey(0),board.getKey(3),board.getKey(6)]
-        let col2 = [board.getKey(1),board.getKey(4),board.getKey(7)]
-        let col3 = [board.getKey(2),board.getKey(5),board.getKey(8)]
+    const _checkCol = (board) => { 
+        const col1 = [board.getKey(0),board.getKey(3),board.getKey(6)]
+        const col2 = [board.getKey(1),board.getKey(4),board.getKey(7)]
+        const col3 = [board.getKey(2),board.getKey(5),board.getKey(8)]
         if (col1.every(elem => elem == 'x') || col1.every(elem => elem == 'o')) {
             return true;
         } else if (col2.every(elem => elem == 'x') || col2.every(elem => elem == 'o')){
@@ -128,9 +130,9 @@ const gameController = (() => {
         };
     };
 
-    const checkDia = (board) => { 
-        let dia1 = [board.getKey(0),board.getKey(1),board.getKey(2)]
-        let dia2 = [board.getKey(3),board.getKey(4),board.getKey(5)]
+    const _checkDia = (board) => { 
+        const dia1 = [board.getKey(2),board.getKey(4),board.getKey(6)]
+        const dia2 = [board.getKey(3),board.getKey(4),board.getKey(8)]
         if (dia1.every(elem => elem == 'x') || dia1.every(elem => elem == 'o')) {
             return true;
         } else if (dia2.every(elem => elem == 'x') || dia2.every(elem => elem == 'o')){
@@ -141,9 +143,16 @@ const gameController = (() => {
     };
 
     const checkWin = (board) => {
-        if (checkRow(board) || checkCol(board) || checkDia(board)) {
-            return true;
-        } else {return false};
+        console.log('I am working')
+        if (_checkRow(board) || _checkCol(board) || _checkDia(board)) {
+            if (_roleX.classList.contains('active')){
+                return alert('Player 2 Won!'); // Problem with this is that the role changes immediately after clicking on button, needs a fix
+            } else if (_roleO.classList.contains('active')){
+                return alert('Player 1 Won!');
+            };
+        } else {
+            return false
+        };
     };
 
     const _init = (() => {
@@ -154,20 +163,19 @@ const gameController = (() => {
                     gameBoard.setKey(i, _player1);
                     _player1.rmvRole();
                     _player2.setRole();
+                    checkWin(gameBoard);
                 } else if(_roleO.classList.contains('active')){
                     gameBoard.setKey(i, _player2);
                     _player1.setRole();
                     _player2.rmvRole();
+                    checkWin(gameBoard);
                 };
             });
         };
     })();
 
     return {
-        checkRow,
-        checkCol,
-        checkDia,
-        checkWin,
+        checkWin
     }
 })();
 
