@@ -64,11 +64,13 @@ const Player = (role) => {
     let docRole = document.getElementById(_role);
 
     const getRole = () => _role; 
+
     const setRole = () => {
         if (!docRole.classList.contains('active')){
             docRole.classList.add('active');
         };
     };
+    
     const rmvRole = () => {
         if (docRole.classList.contains('active')){
             docRole.classList.remove('active');
@@ -126,8 +128,20 @@ const gameController = (() => {
         };
     };
 
+    const checkDia = (board) => { 
+        let dia1 = [board.getKey(0),board.getKey(1),board.getKey(2)]
+        let dia2 = [board.getKey(3),board.getKey(4),board.getKey(5)]
+        if (dia1.every(elem => elem == 'x') || dia1.every(elem => elem == 'o')) {
+            return true;
+        } else if (dia2.every(elem => elem == 'x') || dia2.every(elem => elem == 'o')){
+            return true;
+        } else {
+            return false;
+        };
+    };
+
     const checkWin = (board) => {
-        if (checkRow(board)) {
+        if (checkRow(board) || checkCol(board) || checkDia(board)) {
             alert('yes');
         };
     };
@@ -154,6 +168,7 @@ const gameController = (() => {
     return {
         checkRow,
         checkCol,
+        checkDia,
         checkWin,
     }
 })();
