@@ -179,8 +179,7 @@ const gameController = (() => {
                     gameBoard.setKey(i, _player2);
                     _player1.setRole();
                     _player2.rmvRole();
-                    checkWin(gameBoard);
-                    checkDraw(gameBoard);
+                    results(gameBoard);
                 };
             });
         };
