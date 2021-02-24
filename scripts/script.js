@@ -90,6 +90,7 @@ const gameController = (() => {
     const _roleX = document.getElementById('x'); 
     const _roleO = document.getElementById('o');
     const _keys = document.getElementsByClassName('btn');
+    const _reset = document.getElementById('restart');
 
     const winCondition = [
                         [0,1,2], [3,4,5,],[6,7,8],
@@ -183,6 +184,9 @@ const gameController = (() => {
                 };
             });
         };
+    _reset.addEventListener("click", function(){
+        gameBoard.clear();
+    });
     })();
 
     return {
@@ -194,12 +198,13 @@ const gameController = (() => {
 
 // // Display logic 
 // const displayController = (() => {
-//     const _player1 = Player('x');
-//     const _player2 = Player('o');
-//     const _roleX = document.getElementById('x'); 
-//     const _roleO = document.getElementById('o'); 
-//     const _keys = document.getElementsByClassName('btn');
-
+//     const reset = document.getElementById('restart');
+//     const _init = (() => {
+//         reset.addEventListener("click", function(){
+//             alert('HOORAY');
+//             console.log('hello')
+//         });
+//     })();
 
 
 //     return {
