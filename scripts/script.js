@@ -196,30 +196,3 @@ const gameController = (() => {
     }
 })();
 
-// // Display logic 
-// const displayController = (() => {
-//     const reset = document.getElementById('restart');
-//     const _init = (() => {
-//         reset.addEventListener("click", function(){
-//             alert('HOORAY');
-//             console.log('hello')
-//         });
-//     })();
-
-
-//     return {
-//     };
-// });
-
-// Luke = Player('x');
-// Ai = Player('o');
-// Luke.setRole();
-// Luke.rmvRole();
-
-// gameBoard.setKey(0, Luke)
-// gameBoard.setKey(2, Ai)
-// gameBoard.setKey(4, Luke)
-// gameBoard.setKey(5, Ai)
-// gameBoard.setKey(7, Ai)
-// gameBoard.setKey(8, Luke)
-//displayController()
