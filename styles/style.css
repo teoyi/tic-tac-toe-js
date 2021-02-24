@@ -22,7 +22,8 @@ body{
     flex-direction: row;
     justify-content: space-between; 
     align-items: center;
-    width: 80%;
+    width: 80vh;
+    min-width: 300px;
 }
 
 /* reset button styling */
