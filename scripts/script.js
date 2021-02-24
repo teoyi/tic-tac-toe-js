@@ -142,13 +142,26 @@ const gameController = (() => {
     const checkWin = (board) => {
         console.log('I am working')
         if (_checkRow(board) || _checkCol(board) || _checkDia(board)) {
-            if (_roleX.classList.contains('active')){
-                return alert('Player 2 Won!'); // Problem with this is that the role changes immediately after clicking on button, needs a fix
-            } else if (_roleO.classList.contains('active')){
-                return alert('Player 1 Won!');
-            };
+            return true;
         } else {
-            return false
+            return false;
+        };
+    };
+
+    const checkDraw = (board) => {
+        if (!checkWin(board)){
+            if (board.getBoard().includes(undefined) || board.getBoard().includes("")){
+                return false;
+            };
+        };
+        return true;
+    };
+
+    const results = (board) => {
+        if (checkWin(board)){
+            alert('You won!');
+        } else if (checkDraw(board)){
+            alert('It is a draw!');
         };
     };
 
@@ -160,19 +173,22 @@ const gameController = (() => {
                     gameBoard.setKey(i, _player1);
                     _player1.rmvRole();
                     _player2.setRole();
-                    checkWin(gameBoard);
+                    results(gameBoard);
                 } else if(_roleO.classList.contains('active')){
                     gameBoard.setKey(i, _player2);
                     _player1.setRole();
                     _player2.rmvRole();
                     checkWin(gameBoard);
+                    checkDraw(gameBoard);
                 };
             });
         };
     })();
 
     return {
-        checkWin
+        checkWin,
+        checkDraw,
+        results
     }
 })();
 
