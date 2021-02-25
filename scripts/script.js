@@ -91,12 +91,6 @@ const gameController = (() => {
     const _roleO = document.getElementById('o');
     const _keys = document.getElementsByClassName('btn');
     const _reset = document.getElementById('restart');
-
-    const winCondition = [
-                        [0,1,2], [3,4,5,],[6,7,8],
-                        [0,3,6],[1,4,7],[2,5,8],
-                        [0,4,8],[2,4,6]
-                    ]
     
     const _checkRow = (board) => { 
         const row1 = [board.getKey(0),board.getKey(1),board.getKey(2)]
@@ -183,8 +177,16 @@ const gameController = (() => {
                 };
             });
         };
+
     _reset.addEventListener("click", function(){
         gameBoard.clear();
+        if (_roleX.classList.contains('active')){
+            _player1.rmvRole();
+            _player2.setRole();
+        } else if (_roleO.classList.contains('active')){
+            _player1.setRole();
+            _player2.rmvRole();
+        };
     });
     })();
 
